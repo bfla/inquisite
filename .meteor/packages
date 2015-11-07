@@ -31,6 +31,5 @@ aldeed:collection2
 service-configuration
 accounts-base
 mike:mocha
-chuikoff:bootstrap-4
 meteor
-chuikoff:accounts-ui-bootstrap-4
+twbs:bootstrap
