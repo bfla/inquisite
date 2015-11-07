@@ -1,13 +1,14 @@
 @App = React.createClass(
-  
   mixins: [ReactMeteorData]
- 
+  getMeteorData: ->
+    questions: Questions.find().fetch() 
   render: ->
     <div className="container">
       <header>
         <h1>Todo List</h1>
       </header>
-      <ul>
-      </ul>
+      <div>
+        <CreateQuestion />
+      </div>
     </div>
 )
