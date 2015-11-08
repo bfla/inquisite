@@ -4,7 +4,7 @@
 
   login: (e) -> 
     e.preventDefault()
-    Accounts.loginWithFacebook()
+    Meteor.loginWithFacebook()
 
   render: ->
     <button className='btn btn-default btn-translucent' onClick={this.login} >
