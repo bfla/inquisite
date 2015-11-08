@@ -17,16 +17,19 @@
     user = _.first(@data.users)
     question = _.findWhere(@data.questions, {userId: user._id})
     console.log 'user', user
-    return (
-      <div>
-        <img 
-          className="img-responsive img-circle img-matcher" 
-          src="https://graph.facebook.com/#{user.services.facebook.id}/picture?type=normal"
-        />
-        <p className="text-center"> {user.services.facebook.first_name} </p>
-        <p className="text-center"> {question.text}</p>
-      </div>
-    )
+    if user and question
+      return (
+        <div>
+          <img 
+            className="img-responsive img-circle img-matcher" 
+            src="https://graph.facebook.com/#{user.services.facebook.id}/picture?type=normal"
+          />
+          <p className="text-center"> {user.services.facebook.first_name} </p>
+          <p className="text-center"> {question.text}</p>
+        </div>
+      )
+    else
+      return <span>No data!</span>
 
   render: ->
     <div className='matcher-container'>
