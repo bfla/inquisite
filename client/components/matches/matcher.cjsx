@@ -5,7 +5,7 @@
   getMeteorData: ->
     users: Meteor.users.find().fetch()
     matches: Matches.find().fetch()
-    questions: Questions.find().fetch()
+    questions: Questions.find({}, {sort: {createdAt: -1}}).fetch()
 
   getInitialState: -> 
     return {}
@@ -16,7 +16,7 @@
 
   renderCard: ->
     user = _.first(@data.users)
-    question = @data.questions.findOne(userId: user._id)
+    question = _.findWhere(@data.questions, {userId: user._id})
     console.log 'user', user
     return (
       <div>
@@ -31,16 +31,7 @@
 
   render: ->
     <div className='matcher-container'>
-      <h1 className="text-center"> Hello I am the matcher component </h1>
-      <p className='text-center'>
-        <Link to={'/createQuestion'}>
-          <i className='fa fa-chevron-left matcher-control'/>
-        </Link>
-        &nbsp;
-        <Link to={'/createQuestion'}>
-          <i className='fa fa-chevron-right matcher-control' />
-        </Link>
-      </p>
+      <Chevrons link1='/createQuestion' link2='/createQuestion' />
       {@renderCard()}
       <p className='text-center'>
         <i 
