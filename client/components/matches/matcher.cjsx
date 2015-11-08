@@ -13,7 +13,7 @@
 
   reject: -> return
 
-  renderMatch: ->
+  renderCard: ->
     user = _.first(@data.users)
     console.log 'user', user
     return (
@@ -29,7 +29,7 @@
   render: ->
     <div className='matcher-container'>
       <h1> Hello I am the matcher component </h1>
-      {@renderMatch()}
+      {@renderCard()}
       <p className='text-center'>
         <i 
           className='fa fa-check-circle-o matcher-control' 

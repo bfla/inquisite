@@ -1,10 +1,15 @@
 @Home = React.createClass(
 
-  getInitialState: -> return {}
+  mixins: [ReactMeteorData],
+  getMeteorData: ->
+    currentUser: Meteor.user()
 
   render: ->
-    if Meteor.user()?
-      <Matcher />
+    # if (this.data.todoListLoading) {
+    #     return <LoadingSpinner />;
+    #   }
+    if @data.currentUser?
+      return <Matcher/>
     else
-      <Splash />
+      return <Splash />
 )
