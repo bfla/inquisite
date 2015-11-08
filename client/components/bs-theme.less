@@ -1,0 +1,27 @@
+@brand-primary: #647;
+
+html, body {
+  background: #647;
+  color: white;
+  font-family: 'Dosis';
+  font-weight: 200;
+}
+
+.btn-translucent {
+  border: 1px solid #fff;
+  color: #fff;
+  background: @brand-primary;
+  font-weight: 100;
+  &:hover {
+    border: 1px solid #fff;
+    background: lighten(@brand-primary, 30%);
+    color: #fff;
+    font-color: #fff;
+  }
+  &:focus {
+    border: 1px solid #fff;
+    background: lighten(@brand-primary, 30%);
+    color: #fff;
+    font-color: #fff;
+  }
+}

@@ -33,3 +33,6 @@ accounts-base
 mike:mocha
 meteor
 twbs:bootstrap
+accounts-facebook
+accounts-ui
+reactrouter:react-router

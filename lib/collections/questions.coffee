@@ -9,6 +9,8 @@ schema = new SimpleSchema
   updatedAt:
     type: Date
     autoValue: -> if @isUpdate then return new Date()
+    denyInsert: true
+    optional: true
 Questions.attachSchema(schema)
 
 Questions.allow

@@ -9,15 +9,20 @@
   
   submitCallback: (err, res) ->
     return console.log(err)  if err?
-    console.log(res)
+    console.log('created question:', res)
   
   render: ->
-    <form className="create-question" onSubmit={this.handleSubmit} >
+    <form className="create-question form" onSubmit={this.handleSubmit} >
       <textarea
         ref="textInput"
         placeholder="Type to add new question"
         className="form-control"
       >
       </textarea>
+      <p className="text-center">
+        <button type='submit' className="btn btn-primary">
+          Save
+        </button>
+      </p>
     </form>
 )
