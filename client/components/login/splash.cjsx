@@ -1,7 +1,7 @@
 @Splash = React.createClass({
   render: ->
     <div className='splash-container'>
-      <h1 className='text-center splash-header'>
+      <h1 className='text-center splash-heading'>
         inquisite
       </h1>
       <p className='lead text-center splash-subtitle'>
