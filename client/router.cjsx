@@ -1,5 +1,7 @@
-{  Router, Route } = ReactRouter
+{  Router, Route, Link } = ReactRouter
 history = ReactRouter.history.useQueries(ReactRouter.history.createHistory)()
+
+@Link = Link
 
 @Router = React.createClass(
   
@@ -11,6 +13,7 @@ history = ReactRouter.history.useQueries(ReactRouter.history.createHistory)()
         <Route path='/' component={Home}/>
         <Route path='splash' component={Splash}/>
         <Route path='matcher' component={Matcher}/>
+        <Route path='createQuestion' component={CreateQuestion}/>
       </Route>
     </Router>
 )

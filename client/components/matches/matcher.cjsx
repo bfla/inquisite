@@ -16,7 +16,7 @@
 
   renderCard: ->
     user = _.first(@data.users)
-    question = _.first(@data.questions)
+    question = @data.questions.findOne(userId: user._id)
     console.log 'user', user
     return (
       <div>
@@ -32,6 +32,15 @@
   render: ->
     <div className='matcher-container'>
       <h1 className="text-center"> Hello I am the matcher component </h1>
+      <p className='text-center'>
+        <Link to={'/createQuestion'}>
+          <i className='fa fa-chevron-left matcher-control'/>
+        </Link>
+        &nbsp;
+        <Link to={'/createQuestion'}>
+          <i className='fa fa-chevron-right matcher-control' />
+        </Link>
+      </p>
       {@renderCard()}
       <p className='text-center'>
         <i 

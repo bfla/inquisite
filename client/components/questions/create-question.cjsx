@@ -1,11 +1,17 @@
 @CreateQuestion = React.createClass(
 
+  mixins: [ReactMeteorData]
+  
+  getMeteorData: ->
+    currentUser: Meteor.user()
+
   getInitialState: -> return {}
   
   handleSubmit: (e)->
     e.preventDefault()
     # Find the text field via the React ref
     question =
+      userId: @data.currentUser._id
       text: React.findDOMNode(@refs.textInput).value.trim()
     Questions.insert(question, @submitCallback)
   
@@ -14,6 +20,7 @@
     console.log('created question:', res)
   
   render: ->
+    <p class='lead text-center'>Ask a question</p>
     <form className="create-question form" onSubmit={this.handleSubmit} >
       <textarea
         ref="textInput"
@@ -22,8 +29,8 @@
       >
       </textarea>
       <p className="text-center">
-        <button type='submit' className="btn btn-primary">
-          Save
+        <button type='submit' className="btn btn-primary btn-translucent">
+          Ask
         </button>
       </p>
     </form>

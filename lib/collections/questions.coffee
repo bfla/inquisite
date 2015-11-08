@@ -1,6 +1,8 @@
 @Questions = new Mongo.Collection('questions')
 
 schema = new SimpleSchema
+  userId:
+    type: String
   text:
     type: String
   createdAt:
@@ -14,13 +16,13 @@ schema = new SimpleSchema
 Questions.attachSchema(schema)
 
 Questions.allow
-  insert: (userId, answer)-> true
-  update: (userId, answer)-> true
+  insert: (userId, doc)-> Permissions.ownsDoc(userId: userId, doc: doc)
+  update: (userId, doc)-> true
   remove: ()-> true
 
 Questions.deny
   # may only edit the following fields:
-  update: (userId, answer, fieldNames) -> _.without(fieldNames, 'text').length > 0
-  insert: (userId, answer, fieldNames) -> _.without(fieldNames, 'text').length > 0
+  update: (userId, doc, fieldNames) -> _.without(fieldNames, 'text').length > 0
+  insert: (userId, doc, fieldNames) -> _.without(fieldNames, 'text').length > 0
 
 # Meteor.methods
