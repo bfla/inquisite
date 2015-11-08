@@ -1,4 +1,6 @@
 @CreateQuestion = React.createClass(
+
+  getInitialState: -> return {}
   
   handleSubmit: (e)->
     e.preventDefault()

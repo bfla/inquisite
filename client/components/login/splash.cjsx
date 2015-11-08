@@ -1,4 +1,7 @@
 @Splash = React.createClass({
+
+  getInitialState: -> return {}
+
   render: ->
     <div className='splash-container'>
       <h1 className='text-center splash-heading'>

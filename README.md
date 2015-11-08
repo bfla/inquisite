@@ -1,6 +1,6 @@
 # insquisite
 
-## Getting started
+### Getting started
 
 You can visit the live app at http://inquisite.meteor.com!
 
@@ -12,8 +12,12 @@ cd /inquisite
 meteor --settings dev-settings.json
 ```
 
-## Deployment
+### Deployment
 
 ```
 meteor deploy inquisite.meteor.com --settings prod-setting.json
 ```
+
+### Known issues
+1. Facebook login is not working from the Facebook button -- only from the 
+meteor-ui.

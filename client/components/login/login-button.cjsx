@@ -1,5 +1,7 @@
 @LoginButton = React.createClass(
   
+  getInitialState: -> return {}
+
   login: (e) -> 
     e.preventDefault()
     Accounts.loginWithFacebook()
