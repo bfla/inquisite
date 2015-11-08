@@ -4,7 +4,6 @@
   
   getMeteorData: ->
     users: Meteor.users.find().fetch()
-    matches: Matches.find().fetch()
     questions: Questions.find({}, {sort: {createdAt: -1}}).fetch()
 
   getInitialState: -> 
@@ -31,7 +30,7 @@
 
   render: ->
     <div className='matcher-container'>
-      <Chevrons link1='/createQuestion' link2='/createQuestion' />
+      <Chevrons link1='/createQuestion' link2='/conversations' />
       {@renderCard()}
       <p className='text-center'>
         <i 

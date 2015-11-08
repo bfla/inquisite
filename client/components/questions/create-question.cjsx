@@ -21,7 +21,7 @@
   
   render: ->
     <div>
-      <Chevrons link1='/matcher' link2='/matcher' />
+      <Chevrons link2='/matcher' />
       <p class='lead text-center'>Ask a question</p>
       <form className="create-question form" onSubmit={this.handleSubmit} >
         <textarea

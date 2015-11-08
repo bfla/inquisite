@@ -14,6 +14,7 @@ history = ReactRouter.history.useQueries(ReactRouter.history.createHistory)()
         <Route path='splash' component={Splash}/>
         <Route path='matcher' component={Matcher}/>
         <Route path='createQuestion' component={CreateQuestion}/>
+        <Route path='conversations' component={ConversationsList}/>
       </Route>
     </Router>
 )

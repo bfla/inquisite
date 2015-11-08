@@ -21,3 +21,4 @@ meteor deploy inquisite.meteor.com --settings prod-setting.json
 ### Known issues
 1. Facebook login is not working from the Facebook button -- only from the 
 meteor-ui.
+2. some views don't log the user out properly
