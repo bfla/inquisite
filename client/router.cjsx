@@ -4,9 +4,18 @@ history = ReactRouter.history.useQueries(ReactRouter.history.createHistory)()
 @Link = Link
 
 @Router = React.createClass(
+
+  mixins: [ReactMeteorData]
+
+  getMeteorData: ->
+    currentUser: Meteor.user()
   
   getInitialState: -> return {}
   
+  componentWillMount: ->
+    history.pushState(null, '/') unless @data.currentUser?
+
+
   render: -> 
     <Router history={history}>
       <Route component={App}>
