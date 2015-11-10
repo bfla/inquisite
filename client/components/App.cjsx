@@ -1,9 +1,10 @@
 @App = React.createClass(
-  # mixins: [ReactMeteorData]
-  # getMeteorData: ->
-  #   questions: Questions.find().fetch() 
+  mixins: [ReactMeteorData]
+  getMeteorData: ->
+    currentUser: Meteor.user()
 
-  getInitialState: -> return {}
+  getInitialState: ->
+    loading: false
   
   # renderQuestions: ->
   #   _.map @data.questions, (question) -> 
@@ -12,10 +13,18 @@
   #       question={question}
   #     />
 
+  # componentWillMount: ->
+    # @state.loading = true if Meteor.loggingIn
+    # @history.pushState(null, '/') unless @data.currentUser?
+
+    # Meteor.onLogin () => 
+    #   @render() if @state.loading
+    #   @state.loading = false
+
   render: ->
     <div className="container-fluid">
       <div className="row">
-        <div className="col-sm-4 col-sm-offset-4 app-content-container">
+        <div className="col-sm-12 col-md-4 col-md-offset-4 app-content-container">
           {this.props.children}
         </div>
       </div>
